@@ -71,8 +71,6 @@ class Lookup : public Executable, public Broadcastable
     std::vector<Peer> m_nodesInNetwork;
     std::unordered_set<Peer> l_nodesInNetwork;
 
-    std::mutex m_mutexOfflineLookups;
-
     // Start PoW variables
     bool m_receivedRaiseStartPoW = false;
     std::mutex m_MutexCVStartPoWSubmission;
@@ -97,6 +95,7 @@ class Lookup : public Executable, public Broadcastable
     std::mutex m_mutexSetTxBlockFromSeed;
     std::mutex m_mutexSetTxBodyFromSeed;
     std::mutex m_mutexSetState;
+    std::mutex m_mutexOfflineLookups;
 
     std::vector<unsigned char> ComposeGetDSInfoMessage();
     std::vector<unsigned char> ComposeGetStateMessage();
